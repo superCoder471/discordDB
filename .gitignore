@@ -1,8 +1,10 @@
 #I hate apple sometimes. why does this exist
 .DS_Store
 
-#the file with my token. YOU CANT HAVE IT ;)
+#the file with my token. YOU CANT HAVE IT ;) and my other super secret files
 secret_token.py
+webhook_url.py
+webhook.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

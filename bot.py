@@ -103,6 +103,19 @@ async def create_table(ctx, table_name: str, *, columns: str):
     table_threads[table_name] = thread
     await ctx.send(f"Table `{table_name}` created.")
 
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    if message.webhook_id is not None and message.content.startswith("!"):
+        ctx = await bot.get_context(message)
+        await bot.invoke(ctx)
+        return
+
+    await bot.process_commands(message)
+
+
 @bot.command()
 async def insert(ctx, table_name: str, *, row_data: str):
     if table_name not in table_threads:

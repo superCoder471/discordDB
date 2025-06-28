@@ -78,3 +78,6 @@ The data is in the Discord server, so its about as secure as that
 
 ## The Why
 I don't know. I wanted a free database system, and this seemed easiest.
+
+## FYI
+It will take commands from a webhook which is pretty neat but not very secure I woulden't recommend doing it this way, but its there for all of you to use.
