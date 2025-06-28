@@ -29,14 +29,14 @@ class MyHelpCommand(commands.DefaultHelpCommand):
 
 **Table Operations:**
 - `!create_table <table_name> <columns_json>` - Creates a new table with specified columns
-  Example: `!create_table users '["id", "name", "age"]'`
+  Example: `!create_table users ["id", "name", "age"]`
 
 - `!list_tables` - Lists all available tables
 - `!delete_table <table_name>` - Deletes a table
 
 **Data Operations:**
 - `!insert <table_name> <row_data_json>` - Inserts a row into a table
-  Example: `!insert users '{"name": "Alice", "age": 30}'`
+  Example: `!insert users {"name": "Alice", "age": 30}`
   Attachments: Use `"ATTACHMENT:0"` to reference the first attachment
 
 - `!select_all <table_name>` - Shows all rows in a table
@@ -44,7 +44,7 @@ class MyHelpCommand(commands.DefaultHelpCommand):
   Example: `!select users name=Alice`
 
 - `!update <table_name> <condition> <new_data_json>` - Updates rows matching condition
-  Example: `!update users name=Alice '{"age": 31}'`
+  Example: `!update users name=Alice {"age": 31}`
 
 - `!delete <table_name> <condition>` - Deletes rows matching condition
 
