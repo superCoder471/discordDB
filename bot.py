@@ -21,7 +21,7 @@ table_threads = {}
 class MyHelpCommand(commands.DefaultHelpCommand):
     def __init__(self):
         super().__init__()
-        self.no_category = "**📖 dcDB Commands**"
+        self.no_category = "**dcDB Commands**"
     
     async def send_bot_help(self, mapping):
         help_message = """
@@ -249,7 +249,7 @@ async def update(ctx, table_name: str, condition: str, *, new_data: str):
                 new_content = json.dumps(row, indent=2)
                 if msg.author.id == bot.user.id:
                     await msg.edit(content=new_content)
-                    await ctx.send(f"✅ Row with `{key}={value}` updated.")
+                    await ctx.send(f"Row with `{key}={value}` updated.")
                     updated = True
                 else:
                     await ctx.send("Can't update: original message not sent by this bot.")
@@ -285,7 +285,7 @@ async def delete(ctx, table_name: str, *, condition: str):
             if str(row.get(key)) == value:
                 if msg.author.id == bot.user.id:
                     await msg.delete()
-                    await ctx.send(f"🗑️ Row with `{key}={value}` deleted.")
+                    await ctx.send(f"Row with `{key}={value}` deleted.")
                     deleted = True
                 else:
                     await ctx.send("Can't delete: message not sent by this bot.")
@@ -306,7 +306,7 @@ async def delete_table(ctx, table_name: str):
     try:
         await thread.delete()
         del table_threads[table_name]
-        await ctx.send(f"🗑️ Table `{table_name}` deleted.")
+        await ctx.send(f"Table `{table_name}` deleted.")
     except Exception as e:
         await ctx.send(f"Failed to delete thread: {e}")
 
@@ -354,13 +354,13 @@ async def query(ctx, table_name: str, *, sql: str):
             rows = [row for row in rows if evaluate_condition(row, where_clause)]
 
         if not rows:
-            await ctx.send("🔍 No matching rows found.")
+            await ctx.send("No matching rows found.")
             return
 
         # Send results
         formatted = json.dumps(rows, indent=2)
         if len(formatted) > 1900:
-            await ctx.send("📄 Query results:", 
+            await ctx.send("Query results:", 
                           file=discord.File(fp=bytes(formatted, 'utf-8'), filename="results.json"))
         else:
             await ctx.send(f"```json\n{formatted}\n```")
